@@ -5,35 +5,41 @@ const openrouter = new OpenRouter({
 });
 
 
-const MODEL = "openai/gpt-oss-120b:free";
+const MODEL = "deepseek/deepseek-r1-0528:free";
 
 
 async function fetchFromOpenRouter(prompt: string) {
     try {
-        const stream = await openrouter.chat.send({
+        const completion = await openrouter.chat.send({
             model: MODEL,
             messages: [
                 {
                     role: "user",
-                    content: prompt
-                }
+                    content: prompt,
+                },
             ],
-            stream: true,
-            streamOptions: {
-                includeUsage: true
-            }
         });
 
-        let fullResponse = "";
+        const messageContent = completion.choices?.[0]?.message?.content;
 
-        for await (const chunk of stream) {
-            const content = chunk.choices[0]?.delta?.content;
-            if (content) {
-                fullResponse += content;
-            }
+        if (!messageContent) {
+            throw new Error("Empty response from OpenRouter");
         }
 
-        return fullResponse;
+        if (typeof messageContent === "string") {
+            return messageContent;
+        }
+
+        const text = messageContent
+            .filter((item): item is { type: "text"; text: string } => item.type === "text")
+            .map(item => item.text)
+            .join("");
+
+        if (!text) {
+            throw new Error("No text content in OpenRouter response");
+        }
+
+        return text;
     } catch (error) {
         console.error("OpenRouter API Error:", error);
         throw error;

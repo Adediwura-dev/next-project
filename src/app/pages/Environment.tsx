@@ -64,7 +64,7 @@ export function Environment({
                 >
                     <div className="w-25 h-25 bg-white rounded-2xl flex items-center justify-center mb-4 overflow-hidden">
                         <img
-                            src={"/src/assets/images/next-project.webp"}
+                            src={"/images/next-project.webp"}
                             alt={"logo"}
                         />
                     </div >
