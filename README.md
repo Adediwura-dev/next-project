@@ -1,13 +1,13 @@
 # NextProject
 
-NextProject is an intelligent project recommendation engine designed to ignite your creativity. By analyzing your current environment, available resources, time commitment, energy levels, and goals, Spark suggests personalized DIY, coding, or craft projects that fit your specific context.
+NextProject is an intelligent project recommendation engine designed to ignite your creativity. By analyzing your current environment, available resources, time commitment, energy levels, and goals, NextProject suggests personalized DIY, coding, or craft projects that fit your specific context.
 
 Powered by AI, NextProject not only suggests projects but also generates detailed, step-by-step guides to help you get started immediately.
 
 ## 🌟 Features
 
 *   **Personalized Recommendations**: A multi-step wizard gathers details about your context to provide highly relevant suggestions.
-*   **AI-Powered Logic**: Utilizes the OpenRouter API (specifically GPT-OSS models) to generate creative project ideas and detailed guides.
+*   **AI-Powered Logic**: Utilizes the OpenRouter API (specifically Mimo-v2-flash model) to generate creative project ideas and detailed guides.
 *   **Interactive Dashboard**: View, filter, and manage your recommended projects in a beautiful dashboard.
 *   **Detailed Guides**: Get instant "Get Started" guides including introductions, step-by-step instructions, safety tips, and relevant YouTube search queries.
 *   **Modern UI/UX**: Built with React 19, Tailwind CSS v4, and smooth animations powered by Motion.
